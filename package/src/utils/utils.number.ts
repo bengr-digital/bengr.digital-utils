@@ -1,4 +1,4 @@
-const randomFunc = () => {
+export const randomFunc = () => {
 	return true;
 };
 
@@ -9,8 +9,6 @@ const randomFunc = () => {
  * @example
  * getId(12)  returns 12
  */
-const getId = (number: number) => {
+export const getId = (number: number) => {
 	return number;
 };
-
-export { randomFunc, getId };

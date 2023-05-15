@@ -1,6 +1,6 @@
 {
 	"name": "@bengr.digital/utils",
-	"version": "1.0.1",
+	"version": "1.1.4",
 	"type": "module",
 	"description": "Npm package with utils functions. Ready to use with JavaScript or TypeScript",
 	"main": "dist/index.js",
@@ -9,7 +9,8 @@
 		"/dist"
 	],
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"compile": "npx tsc",
+		"publish": "npm publish --access=public"
 	},
 	"author": "František Špunda",
 	"keywords": [
