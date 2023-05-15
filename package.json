@@ -1,9 +1,13 @@
 {
 	"name": "@bengr.digital/utils",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"description": "Npm package with utils functions. Ready to use with JavaScript or TypeScript",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"/dist"
+	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
