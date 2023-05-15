@@ -1,12 +1,13 @@
 {
   "name": "@bengr.digital/utils",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "type": "module",
   "description": "Npm package with utils functions. Ready to use with JavaScript or TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "/dist",
+    "README.md"
   ],
   "scripts": {
     "compile": "npx tsc",
