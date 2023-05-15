@@ -1,0 +1,20 @@
+{
+	"name": "@bengr.digital/utils",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "Npm package with utils functions. Ready to use with JavaScript or TypeScript",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "František Špunda",
+	"keywords": [
+		"npm",
+		"package",
+		"JavaScript",
+		"TypeScript",
+		"utils",
+		"helpers"
+	],
+	"license": "ISC"
+}
