@@ -3,9 +3,14 @@ import { mergeObjects } from './utils.object.js'
 import { splitAt, stringToType } from './utils.string.js'
 
 /**
+ * Reverse process for serialize. Load object from string in right format.
+ * ```js
+ * unSerialize("user[name]=matej&user[address][city]=Prague")
+ * ==> return { user: { name: 'matej', address: { city: 'Prague' } } }
+ * ```
  *
- * @param string
- * @returns
+ * @param string string in right format
+ * @returns {Object} object
  */
 export const unSerialize = (string: string) => {
   return string
@@ -21,10 +26,15 @@ export const unSerialize = (string: string) => {
 }
 
 /**
+ * Convert object to string. Usefull for save object to URL.
+ * ```js
+ * serialize({ user: { name: 'matej', address: { city: 'Prague' } } })
+ * ==> return "user[name]=matej&user[address][city]=Prague"
+ * ```
  *
- * @param obj
- * @param prefix
- * @returns
+ * @param obj whatever object
+ * @param prefix **(optional)** prefix for first key
+ * @returns string
  */
 export const serialize = (obj: { [x: string]: any }, prefix: string = ''): string => {
   let str = [],

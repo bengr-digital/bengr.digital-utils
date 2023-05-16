@@ -110,22 +110,21 @@ export function setProperty<T extends GenericObject, P extends string>(
 }
 
 /**
- * !!! Recreate this fucntion like removeProperty
+ * For getting value from nested object.
+ *
+ * ```js
+ * getProperty("user.address.city", { user: { address: { city: "Prague" } } })
+ * ==> return "Prague"
+ * ```
+ *
+ * @param path path of property
+ * @param object some object
+ * @param separator **(optional)** separator in path
+ * @returns value of property
  */
-// @ts-ignore
-export function getProperty<T extends GenericObject, P extends NestedPaths<T>>(object: T, path: P) {
-  // @ts-ignore
-  const keys = (path as any).split('.') as Split<NestedPaths<T>, '.'>
-  let value = object
-  // @ts-ignore
-  for (const key of keys) {
-    // @ts-ignore
-    if (!value) return undefined as TypeFromPath<T, P>
-    // @ts-ignore
-    value = value[key]
-  }
-  // @ts-ignore
-  return value as TypeFromPath<T, P>
+export const getProperty = (path: string, obj = self, separator = '.') => {
+  var properties = Array.isArray(path) ? path : path.split(separator)
+  return properties.reduce((prev, curr) => prev?.[curr as any], obj as any)
 }
 
 function traverseAndFlatten(object: GenericObject, target: GenericObject, prefix?: string) {

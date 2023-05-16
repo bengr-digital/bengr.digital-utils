@@ -1,3 +1,3 @@
-const xd: number = 3;
+import { test } from '@bengr.digital/utils';
 
-console.log(xd);
+// serialize({ user: { name: 'John', age: 30 } });

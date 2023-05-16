@@ -17,7 +17,7 @@ export const cn = (...classes: any[]): string => {
  * Just basic slug for string
  * ```
  * slug('Hellú Worldý')
- * ==> return 'hellu-worldy'
+ * ==> return "hellu worldy"
  * ```
  * @param string
  * @returns string
@@ -72,22 +72,24 @@ export const newShade = (col: string, amt: number) => {
 
 /**
  * Format size in bytes to human-readable.
+ * ```js
+ * humanFileSize(1288888) ==> "1.3 MB"
+ * humanFileSize(1288888, false, 3) ==> "1.289 MB"
+ * humanFileSize(1288888, false, 3) ==> "1.229 MiB"
+ * ```
  *
  * @param bytes Number of bytes.
- * @param si True to use metric (SI) units, aka powers of 1000. False to use
- *           binary (IEC), aka powers of 1024.
- * @param dp Number of decimal places to display.
+ * @param si True - powers of 1000 | False - powers of 1024.
+ * @param dp Decimal places that will be displayed.
  *
  * @return Formatted string.
  */
-export const humanFileSize = (bytes: number, si: boolean = true, dp = 1) => {
-  const thresh = si ? 1000 : 1024
+export const humanFileSize = (bytes: number, si: boolean = false, dp = 1) => {
+  const thresh = si ? 1024 : 1000
 
-  if (Math.abs(bytes) < thresh) {
-    return bytes + ' B'
-  }
+  if (Math.abs(bytes) < thresh) return bytes + ' B'
 
-  const units = si ? ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'] : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
+  const units = si ? ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'] : ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
   let u = -1
   const r = 10 ** dp
 
